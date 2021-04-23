@@ -26,18 +26,17 @@
       </div>
 
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+          <template v-if="isLoggedIn">
+          <Logout />
+          </template>
+          <template v-else>
+          <Login />
+          </template>
+          <Register />
     </v-app-bar>
 
     <v-main>
+
       <HelloWorld/>
     </v-main>
   </v-app>
@@ -45,16 +44,24 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import Login from './components/Login';
+import Register from './components/Register';
+import Logout from './components/Logout'
+import {mapGetters} from "vuex"
 
 export default {
   name: 'App',
-
   components: {
     HelloWorld,
+    Register,
+    Login,
+    Logout
+  },
+  computed:{
+    ...mapGetters({
+      isLoggedIn:"isLoggedIn"
+    })
   },
 
-  data: () => ({
-    //
-  }),
 };
 </script>

@@ -6,6 +6,7 @@
     >
       <template v-slot:activator="{ on, Register }">
         <v-btn
+          class="mx-2"
           color="#00cc6a"
           dark
           v-bind="Register"
@@ -21,14 +22,21 @@
         <v-card-text>
           <v-container>
             <v-row>
-                    <v-alert v-show="SignUpError" type="error">
-                    {{SignUpErrorMessage}}
+                    <v-alert v-show="SignUpResponse" type="error">
+                    {{SignUpMessage}}
                     </v-alert>
               <v-col cols="12">
                 <v-text-field
-                  label="Name*"
+                  label="First Name*"
                   required
-                  v-model="name"
+                  v-model="firstname"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="Last Name*"
+                  required
+                  v-model="lastname"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
@@ -43,6 +51,14 @@
                   label="Password*"
                   type="password"
                   v-model="password"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="Confirm Password*"
+                  type="password"
+                  v-model="cpassword"
                   required
                 ></v-text-field>
               </v-col>
@@ -63,7 +79,7 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="SignUp"
+            @click="signUp"
           >
             Sign Up
           </v-btn>
@@ -72,5 +88,38 @@
     </v-dialog>
 </template>
 <script>
-// register function
+import AuthService from '@/services/AuthService.js';
+  export default {
+    name: 'Register',
+    data: () => ({
+      Register: false,
+      firstname:"",
+      lastname:"",
+      email:"",
+      password:"",
+      cpassword:"",
+      SignUpResponse:false,
+      SignUpMessage:"",
+    }),
+    methods:{
+      async signUp() {
+        try {
+          const credentials = {
+            firstname: this.firstname,
+            lastname:this.lastname,
+            email:this.email,
+            password: this.password,
+            cpassword:this.cpassword,
+          };
+          const response = await AuthService.signUp(credentials);
+          this.Register = false;
+          this.SignUpMessage = response.msg;
+          this.$router.push({ path: '/' })
+          } catch (error) {
+            this.SignUpResponse = true;
+            this.SignUpMessage = error.response.data.msg;
+          }
+        }
+      },
+  }
 </script>
