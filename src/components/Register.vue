@@ -21,14 +21,19 @@
         <v-card-text>
           <v-container>
             <v-row>
-                    <v-alert v-show="SignUpError" type="error">
-                    {{SignUpErrorMessage}}
-                    </v-alert>
+
               <v-col cols="12">
                 <v-text-field
-                  label="Name*"
+                  label="First Name*"
                   required
-                  v-model="name"
+                  v-model="firstname"
+                ></v-text-field>
+              </v-col>
+               <v-col cols="12">
+                <v-text-field
+                  label="Last Name*"
+                  required
+                  v-model="lastname"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
