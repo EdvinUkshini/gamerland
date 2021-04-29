@@ -11,6 +11,7 @@
           dark
           v-bind="Login"
           v-on="on"
+          mx-2
         >
           Log In
         </v-btn>
@@ -87,7 +88,6 @@ import AuthService from '@/services/AuthService.js';
                 this.LogInMessage = response.msg;
                 const token = response.token;
                 const user = response.user;
-                this.$router.push({ path: '/' })
                 this.$store.dispatch('login', { token, user });
             } catch (error) {
                 this.LogInResponse = true;

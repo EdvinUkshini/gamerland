@@ -11,6 +11,7 @@
           dark
           v-bind="Register"
           v-on="on"
+          mx-2
         >
           Sign Up
         </v-btn>
@@ -22,20 +23,6 @@
         <v-card-text>
           <v-container>
             <v-row>
-<<<<<<< HEAD
-
-              <v-col cols="12">
-                <v-text-field
-                  label="First Name*"
-                  required
-                  v-model="firstname"
-                ></v-text-field>
-              </v-col>
-               <v-col cols="12">
-                <v-text-field
-                  label="Last Name*"
-                  required
-=======
                     <v-alert v-show="SignUpResponse" type="error">
                     {{SignUpMessage}}
                     </v-alert>
@@ -50,7 +37,6 @@
                 <v-text-field
                   label="Last Name*"
                   required
->>>>>>> f0592d416ffea8c9ef0a2cade74e27fe9ca628f9
                   v-model="lastname"
                 ></v-text-field>
               </v-col>
@@ -129,7 +115,6 @@ import AuthService from '@/services/AuthService.js';
           const response = await AuthService.signUp(credentials);
           this.Register = false;
           this.SignUpMessage = response.msg;
-          this.$router.push({ path: '/' })
           } catch (error) {
             this.SignUpResponse = true;
             this.SignUpMessage = error.response.data.msg;

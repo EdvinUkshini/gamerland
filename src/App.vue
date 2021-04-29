@@ -1,67 +1,11 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-          <template v-if="isLoggedIn">
-          <Logout />
-          </template>
-          <template v-else>
-          <Login />
-          </template>
-          <Register />
-    </v-app-bar>
-
-    <v-main>
-
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+  <div id="app">
+      <router-view :key="$route.fullPath"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import Login from './components/Login';
-import Register from './components/Register';
-import Logout from './components/Logout'
-import {mapGetters} from "vuex"
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    Register,
-    Login,
-    Logout
-  },
-  computed:{
-    ...mapGetters({
-      isLoggedIn:"isLoggedIn"
-    })
-  },
-
-};
+  name: 'App'
+}
 </script>

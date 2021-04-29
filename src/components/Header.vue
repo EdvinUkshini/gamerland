@@ -19,10 +19,9 @@
         class="hidden-sm-and-down pl-10 ml-4"
       />
       <v-spacer />
-      
+      <Profile />
       <div class="dropdown">
   <b-dropdown id="dropdown-offset" offset="25"  class="m-2"
-  
   >
     
     <template v-slot:button-content> 
@@ -36,7 +35,11 @@
     </template>
 
 <script>
-  
-
-  
+  import Profile from './Profile'
+  export default{
+  name:'Header',
+  components:{
+    Profile,
+  }
+}
 </script>
