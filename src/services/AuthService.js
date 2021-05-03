@@ -11,10 +11,4 @@ export default {
       .post(url + 'sign-up/', credentials)
       .then(response => response.data);
   },
-  getUserInfo(userId){
-    return axios.get(url+'users/'+userId).then(response=>response.data)
-  },
-  getSecretContent() {
-    return axios.get(url + 'secret-route/').then(response => response.data);
-  }
 };

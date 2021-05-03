@@ -97,7 +97,7 @@ router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) => {
               return res.status(200).send({
                 msg: 'Logged in!',
                 token,
-                user: result[0].id
+                user: result[0]
               });
             }
             return res.status(401).send({
@@ -107,32 +107,6 @@ router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) => {
         );
       }
     );
-  });
-
-  router.get('/users/:userId', (req,res) =>{
-    db.query(
-      `SELECT id,firstname,lastname,email,role FROM users WHERE id = ${db.escape(req.params.userId)};`,
-      (err, result) => {
-        // user does not exists
-        if (err) {
-          throw err;
-          return res.status(400).send({
-            msg: err
-          });
-        }
-        if (!result.length) {
-          return res.status(401).send({
-            msg: 'No user is found with the given ID'
-          });
-        }else{
-          return res.status(200).send(result);
-        }
-      });
-  })
-
-  router.get('/secret-route', userMiddleware.isLoggedIn, (req, res, next) => {
-    console.log(req.userData);
-    res.send('This is the secret content. Only logged in users can see that!');
   });
 
 module.exports = router;

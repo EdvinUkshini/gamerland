@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store'
-import AuthService from '@/services/AuthService.js';
 import Home from '../views/Home.vue'
 import Layout from '../components/Layout.vue'
 
@@ -36,20 +35,11 @@ const router = new VueRouter({
   routes
 })
 
+
 router.beforeEach((to,from,next) =>{
   
   const RequireAdminRole = to.matched.some(record => record.meta.RequireAdminRole);
-  let role
-  if(!(store.getters.getUser)){
-  const response = AuthService.getUserInfo(store.state.user);
-  response.then(function(result) {
-    role = result[0].role;
-  })
-  }else{
-    role = "None";
-  } 
-
-  if (RequireAdminRole && role != "Admin"){
+  if (RequireAdminRole && store.state.user.role != "Admin"){
     next('Login');
   }else{
     next();
