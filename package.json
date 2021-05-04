@@ -18,6 +18,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.7",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
     "uuid": "^8.3.2",
     "vue": "^2.6.11",
     "vue-material-design-icons": "^4.11.0",
