@@ -9,6 +9,7 @@ app.use(cors());
 // add routes
 const router = require('../routes/router');
 require("../routes/Product.routes")(app);
+require("../routes/Contact.routes")(app);
 
 const db = require("../models");
 db.mongoose
@@ -26,5 +27,12 @@ db.mongoose
 
 
 app.use('/api', router);
+
+const sqldb = require("../sqlmodels");
+sqldb.sequelize.sync();
+
+
+
+
 // run server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
