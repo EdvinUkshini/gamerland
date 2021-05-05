@@ -1,11 +1,11 @@
 var path = require('path');
-const db = require("../models/Product.model");
-const Product = db.Product;
+const db = require("../models");
+const Product = db.product;
 
 global.appRoot = path.join(__dirname, '../');
 const uploadPath = appRoot.concat("/src/assets/images/products");
 
-// Create and Save a new Product
+// Add a new product
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.imgpath) {
@@ -13,38 +13,40 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Product
-  const Product = new Product({
+  // Create a product
+  const product = new Product({
     imgpath: req.body.imgpath,
-    type:req.body.type,
-    manufacturer: req.body.manufacturer,
+    type: req.body.type,
     name: req.body.name,
+    manufacturer: req.body.manufacturer,
     description: req.body.description,
     stock: req.body.stock,
-    price: req.body.price
+    price: req.body.price,
+    discount: req.body.price
   });
 
-  // Save Product in the database
-  Product
-    .save(Product)
+  // Save product in the database
+  product
+    .save(product)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Product."
+          err.message || "Some error occurred while creating the product."
       });
     });
 };
 
-// Retrieve all Products from the database. 
+// Retrieve all products from the database. 
 exports.findAll = (req, res) => {
-  const name = req.query.name;
+  const manufacturer = req.query.manufacturer;
+  const type = req.query.type;
   const theLatest = req.query.theLatest;
   const minPriceFilter = req.query.lessThan;
   const maxPriceFilter = req.query.greaterThan;
-  var condition = name ? { cpu: { $regex: new RegExp(name), $options: "i" } } : {price: {$gte: minPriceFilter, $lte: maxPriceFilter}};
+  var condition = manufacturer ? { type:type,manufacturer: { $regex: new RegExp(manufacturer), $options: "i" } } : {type:type,price: {$gte: minPriceFilter, $lte: maxPriceFilter}};
 
   Product.find(condition).limit(parseInt(theLatest))
     .then(data => {
@@ -53,12 +55,12 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Products."
+          err.message || "Some error occurred while retrieving products."
       });
     });
 };
 
-// Find a single Product with an id
+// Find a single product with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 

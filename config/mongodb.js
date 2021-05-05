@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mongodb+srv://techstore:Techstore123@techstore.c5q4w.mongodb.net/Techstore?retryWrites=true&w=majority"
+    url: "mongodb+srv://GamerLand:GamerLand@gamerland.c5q4w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   };

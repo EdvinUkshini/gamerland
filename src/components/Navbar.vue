@@ -10,10 +10,10 @@
         <a href="/" class="v-btn">
           <span>Home</span>
         </a>
-        <a href="/Desktops" class="v-btn">
+        <a href="/shop/Desktops" class="v-btn">
           <span>Desktops</span>
         </a>
-        <a href="/Laptops" class="v-btn">
+        <a href="/shop/Laptops" class="v-btn">
           <span>Laptops</span>
         </a>
         <v-menu open-on-hover offset-y>
@@ -36,7 +36,7 @@
             </v-list-item>
           </v-card>
         </v-menu>
-        <a href="/Peripherals" class="v-btn">
+        <a href="/shop/Peripherals" class="v-btn">
           <span>Peripherals</span>
         </a>
       </v-bottom-navigation>
@@ -48,11 +48,11 @@
         data () {
             return {
                 items: [
-                    { title: 'Cpu', path:'/' },
-                    { title: 'Ram', path:''},
-                    { title: 'Gpu', path:''},
-                    { title: 'Storage', path:'' },
-                    { title: 'Motherboard', path:''},
+                    { title: 'Cpu', path:'/shop/Cpu' },
+                    { title: 'Ram', path:'/shop/Ram'},
+                    { title: 'Gpu', path:'/shop/Gpu'},
+                    { title: 'Storage', path:'/shop/Storage' },
+                    { title: 'Motherboard', path:'/shop/Motherboard'},
                 ],
             }
         },

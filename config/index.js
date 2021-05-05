@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 // set up port
 const PORT = process.env.PORT || 4000;
 app.use(bodyParser.json());
 app.use(cors());
+app.use(fileUpload());
 // add routes
 const router = require('../routes/router');
 require("../routes/Product.routes")(app);
@@ -18,7 +21,7 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to the MongoDB!");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
@@ -29,7 +32,9 @@ db.mongoose
 app.use('/api', router);
 
 const sqldb = require("../sqlmodels");
-sqldb.sequelize.sync();
+sqldb.sequelize.sync().then(() => {
+  console.log("Connected to the MySQL db!");
+});
 
 
 
