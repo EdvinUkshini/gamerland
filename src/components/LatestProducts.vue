@@ -11,7 +11,7 @@
             <v-divider></v-divider>
             <div class="row">
               <template v-for="item in Products">
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" v-bind:key="item.name">
+              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" v-bind:key="item.id">
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="200"
@@ -54,7 +54,11 @@
       </v-row>
     </v-container>
 </template>
-
+<style>
+.v-card__title {
+   margin: 0px !important
+}
+</style>
 <script>
 import Products from "../services/Products"; 
 export default {

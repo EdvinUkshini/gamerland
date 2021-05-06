@@ -10,7 +10,7 @@ class Products {
   }
   
   theLatest(number) { 
-    return http.get(`/Product?theLatest=${number}&lessThan=0&greaterThan=10000`); 
+    return http.get(`/Product/latestProducts/${number}`); 
   }
 
   create(data) {

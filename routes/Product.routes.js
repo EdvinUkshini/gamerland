@@ -7,6 +7,8 @@ module.exports = app => {
 
   router.get("/", Product.findAll);
 
+  router.get("/latestProducts/:number", Product.findX);
+
   router.get("/:id", Product.findOne);
 
   router.put("/:id", Product.update);

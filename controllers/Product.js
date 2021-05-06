@@ -60,6 +60,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Find x products
+exports.findX = (req, res) => {
+  const number = req.params.number;
+
+  Product.find().limit(parseInt(number))
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "No Data " });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "No Data" });
+    });
+};
+
 // Find a single product with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
