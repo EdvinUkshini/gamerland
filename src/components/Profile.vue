@@ -21,9 +21,34 @@
         <v-card-text style="margin:20px 0px;">
           <v-row justify="center">
           <template v-if="isLoggedIn">
-            <v-btn mx-2 dark @click="SignOut"> Sign Out</v-btn>
-            <div id="buttonSpacer" />
-            <v-btn mx-2 color="#00cc6a" dark>My Orders</v-btn>
+          <v-btn
+            class="mx-2"
+            dark
+            mx-2
+            @click="SignOut" 
+          >
+           Sign Out
+          </v-btn>
+          <v-btn
+            class="mx-2"
+            mx-2
+            style="background-color:#00cc6a;color:#ffffff;"
+          >
+           My Orders
+          </v-btn>
+          <v-btn
+            class="mx-2"
+            tile
+            dark
+            color="indigo"
+            style="margin-top:5px;color:#ffffff;text-decoration:none;"
+            href="/profile"
+          >
+            <v-icon left>
+              mdi-pencil
+            </v-icon>
+            Edit Profile
+          </v-btn>
           </template>
           <template v-else>
               <Login @LogInClick="Profile=false"/>

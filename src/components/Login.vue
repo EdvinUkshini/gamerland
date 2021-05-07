@@ -89,6 +89,7 @@ import AuthService from '@/services/AuthService.js';
                 const token = response.token;
                 const user = response.user;
                 this.$store.dispatch('login', { token, user });
+                this.$emit('LogInClick')
             } catch (error) {
                 this.LogInResponse = true;
                 this.LogInMessage = error.response.data.msg;

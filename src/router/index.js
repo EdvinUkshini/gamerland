@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import Policies from '../views/Policies.vue'
 import Shop from '../views/Shop.vue'
+import Profile from '../components/UserProfile.vue'
 import AddProduct from '../views/AddProduct.vue'
 import Layout from '../components/Layout.vue'
 
@@ -38,6 +39,11 @@ const routes = [
             path: '/shop/:category',
             name: 'Shop',
             component: Shop,
+          },
+          {
+            path: '/profile',
+            name: 'Profile',
+            component: Profile,
           },
           {
             path: '/addproduct',

@@ -20,5 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.contacts = require("./contact.model.js")(sequelize, Sequelize);
+db.shipping = require("./shipping.model.js")(sequelize, Sequelize);
 
 module.exports = db;

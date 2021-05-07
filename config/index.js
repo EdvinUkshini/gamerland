@@ -13,6 +13,8 @@ app.use(fileUpload());
 const router = require('../routes/router');
 require("../routes/Product.routes")(app);
 require("../routes/Contact.routes")(app);
+require("../routes/User.routes")(app);
+require("../routes/Shipping.routes")(app);
 
 const db = require("../models");
 db.mongoose
