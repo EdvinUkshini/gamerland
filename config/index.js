@@ -15,6 +15,7 @@ require("../routes/Product.routes")(app);
 require("../routes/Contact.routes")(app);
 require("../routes/User.routes")(app);
 require("../routes/Shipping.routes")(app);
+require("../routes/Order.routes")(app);
 
 const db = require("../models");
 db.mongoose

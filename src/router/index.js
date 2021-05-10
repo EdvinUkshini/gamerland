@@ -6,6 +6,7 @@ import Contact from '../views/Contact.vue'
 import Policies from '../views/Policies.vue'
 import Shop from '../views/Shop.vue'
 import Profile from '../components/UserProfile.vue'
+import Orders from '../components/Orders.vue'
 import AddProduct from '../views/AddProduct.vue'
 import Layout from '../components/Layout.vue'
 
@@ -44,6 +45,11 @@ const routes = [
             path: '/profile',
             name: 'Profile',
             component: Profile,
+          },
+          {
+            path: '/orders',
+            name: 'Orders',
+            component: Orders,
           },
           {
             path: '/addproduct',
