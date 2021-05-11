@@ -114,7 +114,7 @@
                     <div>${{item.price}}</div>
                   </v-card-text>
                 <v-card-actions>
-                  <router-link :to="`/details/pc/${item._id}`" style="color:#00cc6a;">Details</router-link> 
+                  <router-link :to="`/shop/${item.type}/${item._id}`" style="color:#00cc6a;">Details</router-link> 
                 </v-card-actions>
                 </v-card>
               </v-hover>

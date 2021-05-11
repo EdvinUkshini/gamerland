@@ -5,6 +5,8 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import Policies from '../views/Policies.vue'
 import Shop from '../views/Shop.vue'
+import ProductDetail from '../components/ProductDetail.vue'
+import Wishlist from '../components/Wishlist.vue'
 import Profile from '../components/UserProfile.vue'
 import Orders from '../components/Orders.vue'
 import AddProduct from '../views/AddProduct.vue'
@@ -42,6 +44,11 @@ const routes = [
             component: Shop,
           },
           {
+            path: '/shop/:category/:pId',
+            name: 'ProductDetail',
+            component: ProductDetail,
+          },
+          {
             path: '/profile',
             name: 'Profile',
             component: Profile,
@@ -50,6 +57,11 @@ const routes = [
             path: '/orders',
             name: 'Orders',
             component: Orders,
+          },
+          {
+            path: '/wishlist',
+            name: 'Wishlist',
+            component: Wishlist,
           },
           {
             path: '/addproduct',

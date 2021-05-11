@@ -12,6 +12,7 @@ app.use(fileUpload());
 // add routes
 const router = require('../routes/router');
 require("../routes/Product.routes")(app);
+require("../routes/Wishlist.routes")(app);
 require("../routes/Contact.routes")(app);
 require("../routes/User.routes")(app);
 require("../routes/Shipping.routes")(app);

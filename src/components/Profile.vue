@@ -33,6 +33,7 @@
             class="mx-2"
             mx-2
             style="background-color:#00cc6a;color:#ffffff;"
+            href="/orders"
           >
            My Orders
           </v-btn>
@@ -48,6 +49,16 @@
               mdi-pencil
             </v-icon>
             Edit Profile
+          </v-btn>
+           <v-btn
+            class="mx-2"
+            tile
+            dark
+            color="indigo"
+            style="margin-top:5px;color:#ffffff;text-decoration:none;"
+            href="/wishlist"
+          >
+           Wishlist
           </v-btn>
           </template>
           <template v-else>
