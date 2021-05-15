@@ -8,5 +8,5 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.product = require("./Product.model.js")(mongoose);
 db.wishlist = require("./Wishlist.model.js")(mongoose);
-
+db.feedback = require("./Feedback.model.js")(mongoose);
 module.exports = db;
